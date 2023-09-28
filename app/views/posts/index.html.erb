@@ -1,0 +1,18 @@
+<h1>Talk_space ALL</h1>
+
+<table>
+  <tr>
+    <th>day</th>
+    <th>content</th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.day %></td>
+    <td><%= post.content %></td>
+  </tr>
+<% end %>
+
+<%= link_to 'new post', new_post_path %>
+
+</table>
