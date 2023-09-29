@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:edit, :update]
 
   def index
     @posts = Post.all
@@ -18,11 +19,9 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to posts_path
     else
@@ -34,6 +33,10 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:day, :content)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 
 end
