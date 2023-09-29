@@ -10,6 +10,7 @@
   <tr>
     <td><%= post.day %></td>
     <td><%= post.content %></td>
+    <td><%= link_to "edit", edit_post_path(post.id) %></td>
   </tr>
 <% end %>
 
