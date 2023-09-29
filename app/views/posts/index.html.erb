@@ -2,13 +2,11 @@
 
 <table>
   <tr>
-    <th>day</th>
     <th>content</th>
   </tr>
 
 <% @posts.each do |post| %>
   <tr>
-    <td><%= post.day %></td>
     <td><%= post.content %></td>
     <td><%= link_to 'edit', edit_post_path(post.id) %></td>
     <td><%= link_to 'delete', post_path(post.id), method: :delete ,data: { confirm: 'Can I delete it?' }%></td>

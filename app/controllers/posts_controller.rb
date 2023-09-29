@@ -11,11 +11,15 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-      if @post.save
-        redirect_to posts_path, notiec:"Your post was sent."
-      else
-        render :new
-      end
+    if params[:back]
+       render :new
+     else
+       if @post.save
+         redirect_to posts_path, notiec:"Your post was sent."
+       else
+       render :new
+       end
+    end
   end
 
   def edit
@@ -34,10 +38,15 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def confirm
+    @post = Post.new(post_params)
+    render :new if @post.invalid?
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:day, :content)
+    params.require(:post).permit(:content)
   end
 
   def set_post
