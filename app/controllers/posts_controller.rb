@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:edit, :update]
+  before_action :set_post, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
       if @post.save
-        redirect_to post_path, notiec:"Your post was sent."
+        redirect_to posts_path, notiec:"Your post was sent."
       else
         render :new
       end
@@ -27,6 +27,11 @@ class PostsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to posts_path
   end
 
   private
