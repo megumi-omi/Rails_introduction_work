@@ -9,8 +9,15 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <%= yield %>
+    <header class="header">
+      <img src="/assets/bird.jpg" class="logo_image" alt="ロゴ画像">
+      <p>Welcome to Talk_Space </p>
+    </header>
+
+    <footer class="footer">
+      <p>Copyright © 2023 Ruby on Rails exercise.</p>
+    </footer>
   </body>
 </html>

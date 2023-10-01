@@ -9,5 +9,6 @@ module TalkSpaceApp
     config.load_defaults 6.1
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end
